@@ -66,3 +66,5 @@ Patient
    Password: patient123
 
 
+### Deployed link
+https://dental-care-management-dgz9.vercel.app/
