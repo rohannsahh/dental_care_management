@@ -1,69 +1,68 @@
-# React + TypeScript + Vite
+#  Dental Center Management Dashboard (Frontend Only)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **React-based frontend dashboard** built for ENTNT's Dental Center Management System. It simulates a real-world clinic management system with role-based access, patient and appointment management, and file uploads — all using `localStorage` with no backend.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Features
 
-## Expanding the ESLint configuration
+###  Authentication
+- Hardcoded login for Admin (Dentist) and Patient
+- Email/password-based login
+- Role-based routing & session management via `localStorage`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+###  Admin Role (Dentist)
+- Manage patients (Add/Edit/Delete)
+- Manage appointments (Incidents) per patient
+- Add treatment details, costs, comments, file uploads (stored as base64/blob URLs)
+- Dashboard with:
+  - KPIs (Upcoming appointments, revenue, top patients)
+  - Next 10 appointments
+- Calendar view (monthly/weekly)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+###  Patient Role
+- View own details
+- View upcoming appointments & past treatment history
+- Preview uploaded files (invoices/images)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+###  LocalStorage Data
+- Simulated users, patients, and appointment data via `fakeData.js`
+- All form submissions & uploads are persisted in browser storage
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+###  UI & Tech
+- React (functional components)
+- React Router (role-based protected routes)
+- Context API for global state
+- TailwindCSS for styling
+- Responsive design across mobile, tablet, desktop
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+   git clone https://github.com/rohannsahh/dental_care_management
+   cd dental_care_management
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   npm install
+
+   npm run dev
+
+
+  http://localhost:5173
+
+
+###  Login credentials
+
+Admin
+
+```bash
+   Email: admin@entnt.in
+   Password: admin123
+
+
+Patient
+
+```bash
+
+   Email: patient@entnt.in
+   Password: patient123
+
+
